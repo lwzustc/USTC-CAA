@@ -1,0 +1,123 @@
+html {
+	background: url(../img/secondhand_info.png);
+	background-repeat: no-repeat;
+}
+
+@font-face {
+	font-family: SiyuanDemiLight;
+	src: url(../font/NotoSansHans-DemiLight.otf);
+}
+
+.typewriter {
+	font-family: SiyuanDemiLight;
+	font-size: 20px;
+	color: white;
+	width: 182.45px;
+	height: 31.68px;
+	padding-left: 10px;
+	padding-top: 0;
+	position: absolute;
+}
+#name {
+	left: 711.53px;
+	top: 282.62px;
+}
+#tele {
+	left: 711.53px;
+	top: 347.59px;
+}
+#verify {
+	left: 1082.47px;
+	top: 347.59px;
+}
+
+#time {
+	left: 1228px;
+	top: 812px;
+	color: black;
+	font-size: 12px;
+}
+#degree {
+	left: 1270px;
+	top: 834px;
+	color: black;
+	font-size: 12px;
+}
+
+#bookinfo {
+	position: absolute;
+	left: 325px;
+	top: 505px;
+}
+
+#category {
+	position: absolute;
+	left: 1130px;
+	top: 552px;
+	width: 500px;
+	height: 243px;
+}
+
+.ui-button {
+	width: 94.14px;
+	height: 30.19px;
+	margin-top: 19px;
+	margin-left: 12px;
+}
+.ui-button-text {
+	margin-top: 1px;
+	font-size: 13px;
+	font-family: SiyuanDemiLight;
+}
+
+#submit {
+	position: absolute;
+	left: 893.98px;
+	top: 1005.78px;
+	width: 146.96px;
+	height: 43.32px;
+}
+
+.radio_big {
+	position: absolute;
+	opacity: 0;
+	width: 32px;
+	height: 32px;
+	font-size: 25px;
+	color: white;
+	font-weight: bold;
+}
+#gender_male {
+	left: 1106px;
+	top: 288px;
+}
+#gender_female {
+	left: 1188px;
+	top: 288px;
+}
+
+.radio_small {
+	position: absolute;
+	opacity: 0;
+	width: 15px;
+	height: 15px;
+	font-weight: bold;
+	font-size: 12px;
+	color: black;
+}
+#posun_yes {
+	left: 1279px;
+	top: 860px;
+}
+#posun_no {
+	left: 1318px;
+	top: 860px;
+}
+#tugai_yes {
+	left: 1247px;
+	top: 881px;
+}
+#tugai_no {
+	left: 1287px;
+	top: 881px;
+}

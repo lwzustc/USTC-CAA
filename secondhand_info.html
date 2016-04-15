@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/smoothness/jquery-ui.min.css">
+  	<link rel="stylesheet" href="css/default.css">
+  	<link rel="stylesheet" href="css/secondhand_info.css">
+</head>
+
+<body>
+	<div id="name" class="typewriter">陈一诺</div>
+	<div id="tele" class="typewriter">13900991188</div>
+	<div id="verify" class="typewriter">072539</div>
+	<div id="time" class="typewriter">3个月</div>
+	<div id="degree" class="typewriter">八成新</div>
+
+	<img src="img/secondhand_info_wuhezhizhong.png" alt="这里是感应到的图书的信息" id="bookinfo">
+
+	<div id="category">
+		<input type="checkbox" checked="checked" id="box11"><label for="box11">艺术与摄影</label>
+		<input type="checkbox" checked="checked" id="box12"><label for="box12">人文社科</label>
+		<input type="checkbox" checked="checked" id="box13"><label for="box13">少儿</label>
+		<input type="checkbox" checked="checked" id="box14"><label for="box14">经济</label>
+		<br>
+		<input type="checkbox" checked="checked" id="box21"><label for="box21">期刊杂志</label>
+		<input type="checkbox" checked="checked" id="box22"><label for="box22">体育</label>
+		<input type="checkbox" checked="checked" id="box23"><label for="box23">科技</label>
+		<input type="checkbox" checked="checked" id="box24"><label for="box24">励志与成功</label>
+		<br>
+		<input type="checkbox" checked="checked" id="box31"><label for="box31">教材辅考</label>
+		<input type="checkbox" checked="checked" id="box32"><label for="box32">生活</label>
+		<input type="checkbox" checked="checked" id="box33"><label for="box33">文学</label>
+		<input type="checkbox" checked="checked" id="box34"><label for="box34">其他</label>
+	</div>
+	
+	<a href="secondhand_submitted.html"><div id="submit"></div></a>
+
+	<div id="gender_male" class="radio_big">√</div>
+	<div id="gender_female" class="radio_big">√</div>
+	<div id="posun_yes" class="radio_small">√</div>
+	<div id="posun_no" class="radio_small">√</div>
+	<div id="tugai_yes" class="radio_small">√</div>
+	<div id="tugai_no" class="radio_small">√</div>
+
+	<script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/my_typewriter.js"></script>
+	<script>
+		$("input").button();
+		$(".typewriter").typewriter();
+		$(".radio_small,.radio_big").click(function() {
+			$(this).css('opacity', 1);
+		});
+	</script>
+</body>
+</html>
