@@ -1,0 +1,13 @@
+{
+  "name": "无味书屋",
+  "main": "index.html",
+  "window": {
+    "toolbar": false
+    ,"width": 1920
+    ,"height": 1080
+    ,"fullscreen": true
+  },
+  "webkit": {
+  	"page-cache": true
+  }
+}
