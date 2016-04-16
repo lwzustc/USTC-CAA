@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="css/default.css">
+  	<style type="text/css">
+	html {
+		background: url(img/secondhand_search.png);
+		background-repeat: no-repeat;
+	}
+	.debug {
+		/*opacity: .5;*/
+		/*background-color: blue;*/
+	}
+	#top_button {
+		position: absolute;
+		left: 900px;
+		width: 120px;
+		top: 10px;
+		height: 60px;
+	}
+	#confirm_button {
+		position: absolute;
+		left: 864px;
+		width: 182px;
+		top: 925px;
+		height: 45px;
+	}
+
+	@font-face {
+		font-family: SiyuanLight;
+		src: url(font/NotoSansHans-DemiLight.otf);
+	}
+	#search {
+		position: absolute;
+		left: 617px;
+		top: 111px;
+		width: 750px;
+		height: 51px;
+		padding-left: 15px;
+		padding-top: 5px;
+		font-family: SiyuanLight;
+		font-size: 25px;
+		color: white;
+	}
+	</style>
+</head>
+
+<body>
+	<a href="secondhand_submitted.html"><div id="top_button"></div></a>
+	<a href="secondhand_searchresult.html"><div id="confirm_button"></div></a>
+	
+	<div id="search" class="typewriter">月亮和六便士</div>
+
+	<script src="js/jquery.js"></script>
+    <script src="js/my_typewriter.js"></script>
+	<script>
+		$(".typewriter").typewriter();
+	</script>
+</body>
+</html>

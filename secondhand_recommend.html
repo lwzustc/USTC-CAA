@@ -3,24 +3,118 @@
 <head>
   	<meta charset="utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/smoothness/jquery-ui.min.css">
   	<link rel="stylesheet" href="css/default.css">
   	<style type="text/css">
 	html {
-		background: url(img/secondhand_recommend_background.png);
-		background-repeat: no-repeat;
+		background-color: #F4F4E9;
+	}
+	@font-face {
+		font-family: SiyuanLight;
+		src: url(font/NotoSansHans-DemiLight.otf);
+	}
+	body {
+		margin: 0;
 	}
 	#top_button {
 		position: absolute;
-		left: 880px;
+		left: 890px;
 		width: 120px;
-		top: 25px;
+		top: 13px;
 		height: 60px;
+	}
+
+	#bookinfo {
+		position: absolute;
+		left: 323px;
+		top: 105px;
+	}
+
+	#accordion {
+		position: absolute;
+		left: 125px;
+		top: 320px;
+		width: 135px;
+	}
+	.ui-accordion-header a {
+		font-family: SiyuanLight;
+		font-size: 15px;
+	}
+	.ui-accordion-content {
+		font-family: SiyuanLight;
+		font-size: 10px;
+	}
+
+	.entry {
+		margin-bottom: 5px;
+		margin-left: 8px;
+	}
+
+	#example_1 {
+		border-style: solid;
+		border-width: 1px;
+		width: 50px;
+	}
+	#example_2 {
+		border-style: none;
+		border-width: 1px;
+		width: 50px;
 	}
 	</style>
 </head>
 
 <body>
-	<img src="img/secondhand_recommend.png">
+	<img id="background" src="img/secondhand_recommend_background.png">
+	<img id="bookinfo" src="img/secondhand_recommend_bookinfo.png">
 	<a href="secondhand_submitted.html"><div id="top_button"></div></a>
+
+	<div id="accordion">
+		<h1><a>文学</a></h1>
+		<div>
+			<div class="entry" id="example_1">经典名著</div>
+			<div class="entry">文学理论</div>
+			<div class="entry">评论鉴赏</div>
+			<div class="entry">影视文学</div>
+			<div class="entry">纪实文学</div>
+			<div class="entry">民间文学</div>
+			<div class="entry">文学史</div>
+		</div>
+		<h1><a>艺术与摄影</a></h1>
+		<div>
+			<div class="entry">艺术理论</div>
+			<div class="entry">艺术史</div>
+			<div class="entry">鉴赏收藏</div>
+			<div class="entry" id="example_2">绘画</div>
+			<div class="entry">书法</div>
+			<div class="entry">篆刻</div>
+			<div class="entry">设计</div>
+			<div class="entry">影视</div>
+			<div class="entry">动画</div>
+			<div class="entry">戏剧</div>
+			<div class="entry">摄影</div>
+			<div class="entry">雕塑</div>
+			<div class="entry">建筑</div>
+			<div class="entry">音乐</div>
+			<div class="entry">舞蹈</div>
+			<div class="entry">工艺美术</div>
+			<div class="entry">传记</div>
+			<div class="entry" id="last"><br></div>
+		</div>
+	</div>
+
+	<script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+    	$("#accordion").accordion();
+    	$("#example_2").click(function() {
+    		$(this).css('border-style', 'solid');
+    		$("#last").css('display', 'none');
+    		// $("#background").attr("src", "img/secondhand_recommend_another_background.png");
+    		$("#background").css('display', 'none');
+    		$("html").css("background", "url(img/secondhand_recommend_another_background.png)");
+    		$("html").css("background-repeat", 'no-repeat');
+    		$("#bookinfo").attr("src", "img/secondhand_recommend_another_bookinfo.png");
+    	});
+    </script>
 </body>
 </html>
