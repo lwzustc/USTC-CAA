@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="css/default.css">
+  	<style type="text/css">
+	html {
+		/*background: url(img/index.png);*/
+		/*background-repeat: no-repeat;*/
+	}
+	.debug {
+		opacity: .5;
+		background-color: blue;
+	}
+	body {
+		overflow-x:hidden;
+		overflow-y:hidden;
+	}
+	</style>
+</head>
+
+<body>
+	<video src="" width="1920px" height="1080px" autoplay></video>
+
+	<script src="js/jquery.js"></script>
+	<script>
+		var scanner = { code:0, timestamp:0 };
+		var getScanner = function () {
+			$.get(
+			    "http://localhost:3000/getscanner",
+			    function(data) {
+					var last_code = scanner.code;
+					scanner = JSON.parse(data);
+
+					if (scanner.code === last_code || 
+						Date.now() - scanner.timestamp > 10000) {
+						next();	// do nothing
+					}
+					else {
+						console.log(scanner.code);
+						video.src = 'video/thelittleprince_' + scanner.code + '.mp4';
+						next();
+					}
+			    }
+			);
+		}
+		function next() {
+			setTimeout(getScanner, 500);
+		}
+
+		var video = document.querySelector('video');
+		next();
+	</script>
+</body>
+</html>
