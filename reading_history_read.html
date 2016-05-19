@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="css/default.css">
+  	<style type="text/css">
+	html {
+		/*background: url(img/reading_history_read.png);*/
+		/*background-repeat: no-repeat;*/
+	}
+	.debug {
+		opacity: .5;
+		background-color: blue;
+	}
+	#back {
+		position: absolute;
+		left: 915px;
+		width: 90px;
+		top: 33px;
+		height: 50px;
+	}
+	</style>
+</head>
+
+<body>
+	<div id="slider">
+		<img src="img/reading_history_read.png" alt="" />
+		<img src="img/reading_history_read_page1.png" alt="" />
+		<img src="img/reading_history_read_page3.png" alt="" />
+		<img src="img/reading_history_read_page4.png" alt="" />
+	</div>
+	<a href="reading_history.html"><div id="back" class="debug"></div></a>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/hammer.min.js"></script>
+	<script src="js/flux.min.js"></script>
+	<script>
+		$(function(){
+			window.myFlux = new flux.slider('#slider', {
+				autoplay: false,
+				pagination: false
+			});
+
+			var hammertime = new Hammer($("#slider").get(0));
+			hammertime.on('swipeleft', function() {
+				window.myFlux.next('blocks');
+			});
+			hammertime.on('swiperight', function() {
+				window.myFlux.prev('blocks');
+			});
+			
+		});
+	</script>
+</body>
+</html>
