@@ -27,6 +27,7 @@
 	<div id="slider">
 		<img src="img/reading_history_read.png" alt="" />
 		<img src="img/reading_history_read_page1.png" alt="" />
+		<img src="img/reading_history_read_page2.png" alt="" />
 		<img src="img/reading_history_read_page3.png" alt="" />
 		<img src="img/reading_history_read_page4.png" alt="" />
 	</div>
@@ -36,6 +37,9 @@
 	<script src="js/hammer.min.js"></script>
 	<script src="js/flux.min.js"></script>
 	<script>
+		var effects_next = ['blocks', 'blocks2', 'concentric', 'blocks', 'cube'];
+		var effects_prev = ['tiles3d', 'blinds3d', 'warp', 'blocks']
+
 		$(function(){
 			window.myFlux = new flux.slider('#slider', {
 				autoplay: false,
@@ -44,13 +48,16 @@
 
 			var hammertime = new Hammer($("#slider").get(0));
 			hammertime.on('swipeleft', function() {
-				window.myFlux.next('blocks');
+				window.myFlux.next(random_select(effects_next));
 			});
 			hammertime.on('swiperight', function() {
-				window.myFlux.prev('blocks');
+				window.myFlux.prev(random_select(effects_prev));
 			});
-			
 		});
+
+		function random_select(array) {
+			return array[Math.floor(Math.random()*array.length)]
+		}
 	</script>
 </body>
 </html>
