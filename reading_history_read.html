@@ -37,8 +37,11 @@
 	<script src="js/hammer.min.js"></script>
 	<script src="js/flux.min.js"></script>
 	<script>
-		var effects_next = ['blocks', 'blocks2', 'concentric', 'blocks', 'cube'];
-		var effects_prev = ['tiles3d', 'blinds3d', 'warp', 'blocks']
+		if ($('html').css('zoom') < 1) {
+			$('html').css('zoom', '1');
+		}
+		var effects_next = ['blocks', 'blocks2', 'concentric', 'cube'];
+		var effects_prev = ['tiles3d', 'warp', 'blocks']
 
 		$(function(){
 			window.myFlux = new flux.slider('#slider', {
@@ -61,8 +64,7 @@
 		});
 
 		function random_select(array) {
-			return 'blocks';
-			// return array[Math.floor(Math.random()*array.length)]
+			return array[Math.floor(Math.random()*array.length)]
 		}
 	</script>
 </body>
