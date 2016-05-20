@@ -40,8 +40,10 @@
 		if ($('html').css('zoom') < 1) {
 			$('html').css('zoom', '1');
 		}
-		var effects_next = ['blocks', 'blocks2', 'concentric', 'cube'];
-		var effects_prev = ['tiles3d', 'warp', 'blocks']
+		var effects_next = ['blocks', 'concentric', 'blocks2', 'cube'];
+		var effects_prev = ['tiles3d', 'warp', 'blocks'];
+		var select_enext = selector(effects_next);
+		var select_eprev = selector(effects_prev);
 
 		$(function(){
 			window.myFlux = new flux.slider('#slider', {
@@ -52,10 +54,10 @@
 			var hammertime = new Hammer($("#slider").get(0));
 			hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 			hammertime.on('swipeleft', function() {
-				window.myFlux.next(random_select(effects_next));
+				window.myFlux.next(select_enext());
 			});
 			hammertime.on('swiperight', function() {
-				window.myFlux.prev(random_select(effects_prev));
+				window.myFlux.prev(select_eprev());
 			});
 
 			hammertime.on('swipedown', function() {
@@ -65,6 +67,14 @@
 
 		function random_select(array) {
 			return array[Math.floor(Math.random()*array.length)]
+		}
+		function selector(array) {
+			var index = 0;
+			return function() {
+				var element = array[index];
+				index = (index + 1) % array.length;
+				return element;
+			}
 		}
 	</script>
 
