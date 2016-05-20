@@ -27,11 +27,22 @@
 		width: 182px;
 		height: 45px;
 	}
+	.all { width: 1920px;height: 1080px; }
 	</style>
 </head>
 
 <body>
 	<a href="reading_thelittleprince_video.html"><div class="read"></div></a>
 	<a href="reading_thelittleprince_buy.html"><div class="buy"></div></a>
+
+	<div class="all"></div>	
+	<script src="js/hammer.min.js"></script>
+	<script>
+		var hammertime = new Hammer(document.querySelector('.all'));
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+		hammertime.on('swipedown', function() {
+			window.location.href = "index.html";
+		});
+	</script>
 </body>
 </html>

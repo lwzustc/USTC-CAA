@@ -31,7 +31,7 @@
 		<img src="img/reading_history_read_page3.png" alt="" />
 		<img src="img/reading_history_read_page4.png" alt="" />
 	</div>
-	<a href="reading_history.html"><div id="back" class="debug"></div></a>
+	<a href="reading_history.html"><div id="back"></div></a>
 
 	<script src="js/jquery.js"></script>
 	<script src="js/hammer.min.js"></script>
@@ -47,16 +47,22 @@
 			});
 
 			var hammertime = new Hammer($("#slider").get(0));
+			hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 			hammertime.on('swipeleft', function() {
 				window.myFlux.next(random_select(effects_next));
 			});
 			hammertime.on('swiperight', function() {
 				window.myFlux.prev(random_select(effects_prev));
 			});
+
+			hammertime.on('swipedown', function() {
+				window.location.href = "reading_history.html";
+			});
 		});
 
 		function random_select(array) {
-			return array[Math.floor(Math.random()*array.length)]
+			return 'blocks';
+			// return array[Math.floor(Math.random()*array.length)]
 		}
 	</script>
 </body>

@@ -4,13 +4,13 @@
   	<meta charset="utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/default.css">
-  	<link rel="stylesheet" href="css/flux_need.css">
+  	<!-- <link rel="stylesheet" href="css/flux_need.css"> -->
   	<style type="text/css">
 	html {
 		background: url(img/reading_thelittleprince_video.png);
 		background-repeat: no-repeat;
 	}
-	.debug {
+	#debug {
 		opacity: .5;
 		background-color: blue;
 	}
@@ -19,11 +19,11 @@
 		overflow-y:hidden;
 	}
 	.watch {
-		width: 1265px;
-		height: 712px;
+		width: 1267px;
+		height: 713px;
 		position: absolute;
-		left: 350px;
-		top: 262px;
+		left: 349px;
+		top: 248px;
 	}
 	#back {
 		position: absolute;
@@ -32,6 +32,11 @@
 		top: 33px;
 		height: 50px;
 	}
+	#eye {
+		position: absolute;
+		left: 349px;
+		top: 245px;
+	}
 	</style>
 </head>
 
@@ -39,6 +44,7 @@
 	<a href="reading_thelittleprince.html"><div id="back"></div></a>
 
 	<video src="" class="watch" autoplay></video>
+	<img src="img/the_eye.png" alt="" id="eye">
 
 	<script src="js/jquery.js"></script>
 	<script src="js/hammer.min.js"></script>
