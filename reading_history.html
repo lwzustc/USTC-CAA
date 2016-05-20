@@ -5,10 +5,6 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/default.css">
   	<style type="text/css">
-	html {
-		background: url(img/reading_history.png);
-		background-repeat: no-repeat;
-	}
 	.debug {
 		opacity: .5;
 		background-color: blue;
@@ -27,21 +23,51 @@
 		width: 182px;
 		height: 45px;
 	}
-	.all { width: 1920px;height: 1080px; }
+	.swipe_back_left {
+		position: absolute;top: 0;left: 0;
+		width: 520px;height: 1080px;
+	}
+	.swipe_back_right {
+		position: absolute;top: 0;left: 1400px;
+		width: 520px;height: 1080px;
+	}
 	</style>
 </head>
 
 <body>
+	<img src="img/reading_history.png" alt="">
 	<a href="reading_history_read.html"><div class="read"></div></a>
 	<a href="reading_history_buy.html"><div class="buy"></div></a>
 	<div class="all"></div>
 	<script src="js/hammer.min.js"></script>
 	<script>
-		var hammertime = new Hammer(document.querySelector('.all'));
+		var hammertime = new Hammer(document.querySelector('.swipe_back_left'));
 		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 		hammertime.on('swipedown', function() {
-			window.location.href = "index.html";
+			var dest = "index.html";
+			$.mobile.changePage( dest, {
+				transition: "slidedown",
+			});
+			setTimeout(function(){
+				window.location.href = dest;
+			}, 1000);
+		});
+		hammertime = new Hammer(document.querySelector('.swipe_back_right'));
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+		hammertime.on('swipedown', function() {
+			var dest = "index.html";
+			$.mobile.changePage( dest, {
+				transition: "slidedown",
+			});
+			setTimeout(function(){
+				window.location.href = dest;
+			}, 1000);
 		});
 	</script>
+
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src='js/jquery.js'></script>
+	<script src='js/jquery.mobile.js'></script>
+	<script src='js/page_transition.js'></script>
 </body>
 </html>

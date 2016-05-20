@@ -5,10 +5,6 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/default.css">
   	<style type="text/css">
-	html {
-		background: url(img/reading_buycode.png);
-		background-repeat: no-repeat;
-	}
 	.debug {
 		opacity: .5;
 		background-color: blue;
@@ -17,10 +13,16 @@
 </head>
 
 <body>
+	<img src="img/reading_buycode.png" alt="">
 	<script>
 		setTimeout(function() {
 			window.location.href = "reading_buyconfirmed.html";
 		}, 3000);
 	</script>
+
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src='js/jquery.js'></script>
+	<script src='js/jquery.mobile.js'></script>
+	<script src='js/page_transition.js'></script>
 </body>
 </html>

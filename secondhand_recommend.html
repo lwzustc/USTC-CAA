@@ -105,16 +105,22 @@
 	<script src="js/jquery.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script>
+    	location.reload();
     	$("#accordion").accordion();
     	$("#example_2").click(function() {
     		$(this).css('border-style', 'solid');
     		$("#last").css('display', 'none');
-    		// $("#background").attr("src", "img/secondhand_recommend_another_background.png");
-    		$("#background").css('display', 'none');
-    		$("html").css("background", "url(img/secondhand_recommend_another_background.png)");
-    		$("html").css("background-repeat", 'no-repeat');
+    		// $("#background").css('display', 'none');
+    		// $("html").css("background", "url(img/secondhand_recommend_another_background.png)");
+    		// $("html").css("background-repeat", 'no-repeat');
+    		$("#background").attr("src", "img/secondhand_recommend_another_background.png");
     		$("#bookinfo").attr("src", "img/secondhand_recommend_another_bookinfo.png");
     	});
     </script>
+
+	<!-- <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src='js/jquery.js'></script>
+	<script src='js/jquery.mobile.js'></script>
+	<script src='js/page_transition.js'></script> -->
 </body>
 </html>

@@ -1,6 +1,8 @@
 html {
-	zoom: 50%;
+	/*zoom: 50%;*/
 	/*-moz-transform: scale(0.5);*/
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 body {
