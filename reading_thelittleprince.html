@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<div data-role="page">
 <head>
   	<meta charset="utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,14 +10,14 @@
 		opacity: .5;
 		background-color: blue;
 	}
-	.read {
+	#read {
 		position: absolute;
 		left: 691px;
 		top: 975px;
 		width: 182px;
 		height: 45px;
 	}
-	.buy {
+	#buy {
 		position: absolute;
 		left: 1057px;
 		top: 975px;
@@ -36,8 +37,8 @@
 
 <body>
 	<img src="img/reading_thelittleprince.png" alt="">
-	<a href="reading_thelittleprince_video.html"><div class="read"></div></a>
-	<a href="reading_thelittleprince_buy.html"><div class="buy"></div></a>
+	<a><div href="reading_thelittleprince_video.html" id="read"></div></a>
+	<a><div href="reading_thelittleprince_buy.html" id="buy"></div></a>
 
 	<div class="swipe_back_left"></div>	
 	<div class="swipe_back_right"></div>	
@@ -73,4 +74,5 @@
 	<script src='js/jquery.mobile.js'></script>
 	<script src='js/page_transition.js'></script>
 </body>
+</div>
 </html>
