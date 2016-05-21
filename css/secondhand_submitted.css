@@ -1,0 +1,21 @@
+#left_button {
+		position: absolute;
+		left: 624px;
+		top: 723px;
+		width: 212px;
+		height: 69px;
+	}
+	#right_button {
+		position: absolute;
+		left: 1077px;
+		top: 723px;
+		width: 212px;
+		height: 69px;
+	}
+	#top_button {
+		position: absolute;
+		left: 900px;
+		width: 120px;
+		top: 40px;
+		height: 60px;
+	}

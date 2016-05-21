@@ -1,17 +1,17 @@
 html {
 	/*zoom: 50%;*/
 	/*-moz-transform: scale(0.5);*/
-	overflow-x: hidden;
-	overflow-y: hidden;
+	/*overflow-x: hidden;*/
+	/*overflow-y: hidden;*/
 }
 
 body {
 	margin: 0;
 	padding: 0;
 }
-
+/*
 .ui-page {
 	backface-visibility: hidden;  
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
-}
+}*/

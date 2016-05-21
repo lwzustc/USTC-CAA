@@ -1,17 +1,18 @@
 $('a div').click(function() {
 	var dest = $(this).attr('href');
-	$.mobile.changePage( dest, {
-		transition: transition_by_id($(this).attr('id')),
-		// role: 'page';
-		// reloadPage: true
-	});
-	// setTimeout(function() {
-	// 	window.location.href = dest;
-	// }, 1000);
+	var id = $(this).attr('id');
+	if (id == 'back' || id == 'top_button') {
+		$.mobile.changePage( dest, {
+			transition: 'slidedown',
+		});
+	}
+	else {
+		window.location.href = dest;
+	}
 });
 
 function transition_by_id(id) {
-	return 'slidedown';
+	// return 'slidedown';
 	if (id === 'back' || id === 'top_button') {
 		return 'slidedown';
 	}
