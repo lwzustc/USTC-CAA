@@ -5,6 +5,9 @@ $('a div').click(function() {
 		$.mobile.changePage( dest, {
 			transition: 'slidedown',
 		});
+		setTimeout(function() {
+			window.location.href = dest;
+		}, 1000);
 	}
 	else {
 		window.location.href = dest;
