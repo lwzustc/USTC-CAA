@@ -9,10 +9,10 @@
 <body>
 <div data-role="page">
   	<style type="text/css">
-	html {
-		/*background: url(img/reading_history_read.png);*/
-		/*background-repeat: no-repeat;*/
-	}
+	/*html {
+		background: url(img/reading_history_read.png);
+		background-repeat: no-repeat;
+	}*/
 	.debug {
 		opacity: .5;
 		background-color: blue;
@@ -63,7 +63,13 @@
 			});
 
 			hammertime.on('swipedown', function() {
-				window.location.href = "reading_history.html";
+				// window.location.href = "reading_history.html";
+				$.mobile.changePage( "reading_history.html", {
+					transition: "slidedown",
+				});
+				setTimeout(function() {
+					window.location.href = "reading_history.html";
+				}, 1000);
 			});
 		});
 
