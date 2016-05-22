@@ -1,25 +1,31 @@
 $('a div').click(function() {
 	var dest = $(this).attr('href');
 	var id = $(this).attr('id');
-	if (id == 'back' || id == 'top_button') {
-		$.mobile.changePage( dest, {
-			transition: 'slidedown',
-		});
-		setTimeout(function() {
-			window.location.href = dest;
-		}, 1000);
-	}
-	else {
+
+	$.mobile.changePage( dest, {
+		transition: transition_by_id(id),
+	});
+	setTimeout(function() {
 		window.location.href = dest;
-	}
+	}, 1000);
+	// if (id == 'back' || id == 'top_button') {
+	// 	$.mobile.changePage( dest, {
+	// 		transition: 'slidedown',
+	// 	});
+	// 	setTimeout(function() {
+	// 		window.location.href = dest;
+	// 	}, 1000);
+	// }
+	// else {
+	// 	window.location.href = dest;
+	// }
 });
 
 function transition_by_id(id) {
-	// return 'slidedown';
-	if (id === 'back' || id === 'top_button') {
+	if (id == 'back' || id == 'top_button') {
 		return 'slidedown';
 	}
-	else if (id === 'secondhand_exchangecode') {
+	else if (id === 'pop_transition') {
 		return 'pop';
 	}
 	else {
