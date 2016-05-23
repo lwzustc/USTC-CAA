@@ -3,22 +3,11 @@ $('a div').click(function() {
 	var id = $(this).attr('id');
 
 	$.mobile.changePage( dest, {
-		transition: transition_by_id(id),
+		transition: transition_by_id(id)
 	});
 	setTimeout(function() {
 		window.location.href = dest;
 	}, 1000);
-	// if (id == 'back' || id == 'top_button') {
-	// 	$.mobile.changePage( dest, {
-	// 		transition: 'slidedown',
-	// 	});
-	// 	setTimeout(function() {
-	// 		window.location.href = dest;
-	// 	}, 1000);
-	// }
-	// else {
-	// 	window.location.href = dest;
-	// }
 });
 
 function transition_by_id(id) {
@@ -29,7 +18,6 @@ function transition_by_id(id) {
 		return 'pop';
 	}
 	else {
-		return $.mobile.defaultPageTransition;
+		return $.mobile.defaultPageTransition; // which is fade
 	}
-	// 'fade'
 }
