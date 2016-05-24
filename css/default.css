@@ -1,11 +1,6 @@
-html {
-	/*zoom: 50%;*/
-	/*-moz-transform: scale(0.5);*/
-}
-
 body {
-	/*overflow-x: hidden;*/
-	/*overflow-y: hidden;*/
+	overflow-x: hidden;
+	overflow-y: hidden;
 	margin: 0;
 	padding: 0;
 }
