@@ -18,8 +18,14 @@
 	<img src="img/reading_buycode.png" alt="">
 	<script>
 		setTimeout(function() {
-			window.location.href = "reading_buyconfirmed.html";
-		}, 3000);
+			var dest = "reading_buyconfirmed.html";
+			$.mobile.changePage( dest, {
+				transition: 'slideup'
+			});
+			setTimeout(function() {
+				window.location.href = dest;
+			}, 1000);
+		}, 2500);
 	</script>
 </div>
 

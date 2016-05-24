@@ -1,3 +1,5 @@
+document.ondragstart = function() { return false; };
+
 $('a div').click(function() {
 	var dest = $(this).attr('href');
 	var id = $(this).attr('id');
@@ -18,6 +20,6 @@ function transition_by_id(id) {
 		return 'pop';
 	}
 	else {
-		return $.mobile.defaultPageTransition; // which is fade
+		return 'slideup';
 	}
 }
