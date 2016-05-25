@@ -7,9 +7,11 @@ $('a div').click(function() {
 	$.mobile.changePage( dest, {
 		transition: transition_by_id(id)
 	});
-	setTimeout(function() {
-		window.location.href = dest;
-	}, 1000);
+	if (id != "not_refresh") {
+		setTimeout(function() {
+			window.location.href = dest;
+		}, 1000);
+	}
 });
 
 function transition_by_id(id) {

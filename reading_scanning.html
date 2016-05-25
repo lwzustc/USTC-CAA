@@ -31,12 +31,60 @@
 	</div>
 
 	<script>
-		document.querySelector('body').onclick = function() {
-			window.location.href = "reading_history.html";
+		function trans(dest) {
+			$.mobile.changePage( dest, {
+				transition: 'slideup'
+			});
+			setTimeout(function() {
+				window.location.href = dest;
+			}, 1000);
 		}
+
+		document.querySelector('body').onclick = function() {
+			trans("reading_history.html");
+		};
 		setTimeout(function() {
-			window.location.href = "reading_thelittleprince.html";
+			trans("reading_thelittleprince.html");
 		}, 3000);
+
+		set_videochange_listener(function(index) {
+			if (index == 9) {
+				trans("reading_history.html");
+			} else {
+				trans("reading_thelittleprince.html");
+			}
+		});
+
+		function set_videochange_listener(callback) {
+			var scanner = { code:0, timestamp:0 };
+			next();
+
+			function getScanner() {
+				$.get(
+				    "http://localhost:3000/getscanner",
+				    function(data) {
+						var last_code = scanner.code;
+						scanner = JSON.parse(data);
+
+						if (scanner.code === last_code 
+							|| Date.now() - scanner.timestamp > 10000
+							|| !effective_index(scanner.code)) {
+							console.log(scanner.code);
+							next();	// do nothing
+						}
+						else {
+							console.log(scanner.code);
+							callback(scanner.code);
+							next();
+						}
+				    }
+				);
+			}
+			function next() {
+				setTimeout(getScanner, 500);
+			}
+			function effective_index(i) { return i == 9 || i == 10; }
+		}
 	</script>
 </div>
 

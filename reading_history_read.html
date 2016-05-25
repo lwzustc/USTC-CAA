@@ -9,10 +9,6 @@
 <body>
 <div data-role="page">
   	<style type="text/css">
-	/*html {
-		background: url(img/reading_history_read.png);
-		background-repeat: no-repeat;
-	}*/
 	.debug {
 		opacity: .5;
 		background-color: blue;
@@ -63,7 +59,6 @@
 			});
 
 			hammertime.on('swipedown', function() {
-				// window.location.href = "reading_history.html";
 				$.mobile.changePage( "reading_history.html", {
 					transition: "slidedown",
 				});
@@ -71,7 +66,41 @@
 					window.location.href = "reading_history.html";
 				}, 1000);
 			});
+
+			set_pagechange_listener(function(index) {
+				window.myFlux.showImage(index);
+			});
 		});
+
+		function set_pagechange_listener(callback) {
+			var scanner = { code:0, timestamp:0 };
+			next();
+
+			function getScanner() {
+				$.get(
+				    "http://localhost:3000/getscanner",
+				    function(data) {
+						var last_code = scanner.code;
+						scanner = JSON.parse(data);
+
+						if (scanner.code === last_code || 
+							Date.now() - scanner.timestamp > 10000 ||
+							!effective_index(scanner.code)) {
+							next();	// do nothing
+						}
+						else {
+							console.log(scanner.code);
+							callback(scanner.code - 4);
+							next();
+						}
+				    }
+				);
+			}
+			function next() {
+				setTimeout(getScanner, 500);
+			}
+			function effective_index(i) { return 5<=i && i<=8; }
+		}
 
 		function random_select(array) {
 			return array[Math.floor(Math.random()*array.length)]

@@ -48,15 +48,48 @@
 		var hammertime = new Hammer($("video").get(0));
 		hammertime.on('swipeleft', function() {
 			video_index = (video_index-1+1) % 4 + 1; // 1234 -> 2341; 0 -> 1
-			flush();
+			flush(video_index);
 		});
 		hammertime.on('swiperight', function() {
 			video_index = (video_index-1+3) % 4 + 1; // 1234 -> 4123; 0 -> 4
-			flush();
+			flush(video_index);
 		});
 
-		function flush() {
-			$('video').attr('src', 'video/thelittleprince_'+video_index+'.mp4');
+		set_videochange_listener(flush);
+
+		function flush(index) {
+			$('video').attr('src', 'video/thelittleprince_' + index + '.mp4');
+		}
+
+		function set_videochange_listener(callback) {
+			var scanner = { code:0, timestamp:0 };
+			next();
+
+			function getScanner() {
+				$.get(
+				    "http://localhost:3000/getscanner",
+				    function(data) {
+						var last_code = scanner.code;
+						scanner = JSON.parse(data);
+
+						if (scanner.code === last_code || 
+							Date.now() - scanner.timestamp > 10000 ||
+							!effective_index(scanner.code)) {
+							next();	// do nothing
+						}
+						else {
+							console.log(scanner.code);
+							video_index = scanner.code;
+							callback(video_index);
+							next();
+						}
+				    }
+				);
+			}
+			function next() {
+				setTimeout(getScanner, 500);
+			}
+			function effective_index(i) { return 1<=i && i<=4; }
 		}
 	</script>
 </div>
