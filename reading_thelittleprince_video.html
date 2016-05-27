@@ -49,6 +49,10 @@
 	<script src="js/hammer.min.js"></script>
 	<script>
 		var video = document.querySelector("video");
+		video.oncanplay = function() {
+			$('#begin').hide();
+			video.play();
+		};
 
 		var video_index = 0;
 		var hammertime = new Hammer(document.body);
@@ -69,10 +73,6 @@
 					   .hide()
 					   .fadeIn(1500, function() {
 							video.src = 'video/thelittleprince_' + index + '.mp4';
-							setTimeout(function(){
-								$('#begin').hide();
-								video.play();
-							}, 300);
 						});
 		}
 
